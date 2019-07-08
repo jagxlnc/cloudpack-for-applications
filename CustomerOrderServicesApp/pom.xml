@@ -70,6 +70,7 @@
           <earSourceDirectory>${basedir}</earSourceDirectory>
           <earSourceIncludes>**/ibm-application-bnd.xml</earSourceIncludes>
           <earSourceExcludes>**/target/**</earSourceExcludes>
+          <outputDirectory>../tWAS/</outputDirectory>
           <security>
             <security-role>
               <role-name>SecureShopper</role-name>
