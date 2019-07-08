@@ -122,11 +122,11 @@ pipeline {
                             """
                             openshift.withCluster() {
                             openshift.withProject() {
-                            def objects1 = openshift.apply( readFile("openshift/yaml/dc.yaml"), "--namespace=${env.NAMESPACE}" )
+                            def objects1 = openshift.apply( readFile("Deployment/openshift/yaml/dc.yaml"), "--namespace=${env.NAMESPACE}" )
                             println "Created objects: ${objects1.names()}"
-                            def objects2 = openshift.apply( readFile("openshift/yaml/service.yaml"), "--namespace=${env.NAMESPACE}" )
+                            def objects2 = openshift.apply( readFile("Deployment/openshift/yaml/service.yaml"), "--namespace=${env.NAMESPACE}" )
                             println "Created objects: ${objects2.names()}"
-                            def objects3 = openshift.apply( readFile("openshift/yaml/route.yaml"), "--namespace=${env.NAMESPACE}" )
+                            def objects3 = openshift.apply( readFile("Deployment/openshift/yaml/route.yaml"), "--namespace=${env.NAMESPACE}" )
                             println "Created objects: ${objects3.names()}"
                            }
                          }
