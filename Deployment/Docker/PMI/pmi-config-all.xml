@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pmiservice:PMIModule xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:pmiservice="http://www.ibm.com/websphere/appserver/schemas/5.0/pmiservice.xmi" xmi:id="PMIModule_1075747243635" moduleName="pmi" type="" enable="">
+  <pmimodules xmi:id="PMIModule_101" moduleName="alarmManagerModule" type="alarmManagerModule" enable="1,2,3,4,5,6"/>
+  <pmimodules xmi:id="PMIModule_102" moduleName="beanModule" type="beanModule#" enable="1,2,3,4,5,6,7,8,9,10,11,12,14,15,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44"/>
+  <pmimodules xmi:id="PMIModule_103" moduleName="cacheModule" type="com.ibm.websphere.pmi.xml.cacheModule_root,com.ibm.websphere.pmi.xml.cacheModule_template" enable="32,1,2,34,35,36,21,22,23,24,25,26,27,28,29,30,31">
+    <pmimodules xmi:id="PMIModule_1031" moduleName="*" type="com.ibm.websphere.pmi.xml.cacheModule_root" enable="1,2">
+      <pmimodules xmi:id="PMIModule_1032" moduleName="cacheModule.template" type="com.ibm.websphere.pmi.xml.cacheModule_template" enable="32,34,35,36,21,22,23,24,25,26,27,28,29,30,31"/>
+      <pmimodules xmi:id="PMIModule_1033" moduleName="cacheModule.objectCache" type="com.ibm.websphere.pmi.xml.cacheModule_template" enable="32,34,35,36,21,22,23,24,25,26,27,28,29,30,31"/>
+      <pmimodules xmi:id="PMIModule_1034" moduleName="cacheModule.disk" type="com.ibm.websphere.pmi.xml.cacheModule_disk" enable="4,5,6,7,8,9,10,11,12,13,14,15,16,17,18"/>
+    </pmimodules>
+  </pmimodules>
+  <pmimodules xmi:id="PMIModule_104" moduleName="connectionPoolModule" type="connectionPoolModule" enable="1,2,3,4,5,6,7,8,9,10,12,13,14,15,21,22"/>
+  <pmimodules xmi:id="PMIModule_105" moduleName="DCSStats.Group" type="com.ibm.ws.dcs.stat.DCSStats" enable="1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16"/>
+  <pmimodules xmi:id="PMIModule_127" moduleName="hamanagerModule" type="hamanagerModule" enable="1,2,3,4,5,6,7"/>
+  <pmimodules xmi:id="PMIModule_106" moduleName="jvmRuntimeModule" type="jvmRuntimeModule#" enable="1,2,3,4,5">
+    <pmimodules xmi:id="PMIModule_1061" moduleName="GC" type="jvmRuntimeModule#GC" enable="11,12,13"/>
+    <pmimodules xmi:id="PMIModule_1062" moduleName="Object" type="jvmRuntimeModule#Object" enable="16,14,15"/>
+    <pmimodules xmi:id="PMIModule_1063" moduleName="Thread" type="jvmRuntimeModule#Thread" enable="17,18"/>
+    <pmimodules xmi:id="PMIModule_1164" moduleName="Monitor" type="jvmRuntimeModule#Monitor" enable="19,20"/>
+  </pmimodules>
+  <pmimodules xmi:id="PMIModule_111" moduleName="j2cModule" type="j2cModule" enable="1,2,3,4,5,6,7,8,9,10,12,13,14,15"/>
+  <pmimodules xmi:id="PMIModule_114" moduleName="objectPoolModule" type="objectPoolModule" enable="1,2,3,4"/>
+  <pmimodules xmi:id="PMIModule_115" moduleName="orbPerfModule" type="orbPerfModule#" enable="1,2,3">
+    <pmimodules xmi:id="PMIModule_1151" moduleName="orbPerfModule.interceptors" type="orbPerfModule#orbPerfModule.interceptors" enable="11"/>
+  </pmimodules>
+  <pmimodules xmi:id="PMIModule_116" moduleName="schedulerModule" type="schedulerModule" enable="1,2,3,4,5,6,7,8,9,10,11"/>
+  <pmimodules xmi:id="PMIModule_117" moduleName="servletSessionsModule" type="servletSessionsModule" enable="1,2,4,6,7,8,9,10,11,12,13,14,15,16,17,18"/>
+  <pmimodules xmi:id="PMIModule_128" moduleName="StatGroup.SIBService" type="com.ibm.ws.sib.admin.pmi.xml.SIBService" enable="">
+    <pmimodules xmi:id="PMIModule_1281" moduleName="StatGroup.SIBMessagingEngines" type="com.ibm.ws.sib.admin.pmi.xml.SIBMessagingEngines" enable="">
+      <pmimodules xmi:id="PMIModule_12811" moduleName="*" type="com.ibm.ws.sib.admin.pmi.xml.SIBMessagingEngine" enable="">
+        <pmimodules xmi:id="PMIModule_12812" moduleName="Destinations" type="com.ibm.ws.sib.processor.stats.static.MessageProcessorStats" enable="">
+          <pmimodules xmi:id="PMIModule_128121" moduleName="Queues" type="com.ibm.ws.sib.processor.stats.static.QueueStats" enable="1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22"/>
+          <pmimodules xmi:id="PMIModule_128122" moduleName="Topicspaces" type="com.ibm.ws.sib.processor.stats.static.TopicspaceStats" enable="100,101,102,103,104,105,106,107,108,109,110,111,112,113,114,115,116,117,118,119">
+            <pmimodules xmi:id="PMIModule_128123" moduleName="*" type="com.ibm.ws.sib.processor.stats.static.TopicspaceStats" enable="100,101,102,103,104,105,106,107,108,109,110,111,112,113,114,115,116,117,118,119">
+              <pmimodules xmi:id="PMIModule_128124" moduleName="Durable Subscriptions" type="com.ibm.ws.sib.processor.stats.static.DurableSubscriptionStats" enable="208,209,200,201,202,203,204,205,206,207"/>
+            </pmimodules>
+          </pmimodules>
+        </pmimodules>
+        <pmimodules xmi:id="PMIModule_12813" moduleName="Mediations" type="com.ibm.ws.sib.mediation.stats.Mediations" enable="">
+          <pmimodules xmi:id="PMIModule_128131" moduleName="*" type="com.ibm.ws.sib.mediation.stats.Mediation" enable="1001">
+            <pmimodules xmi:id="PMIModule_128132" moduleName="Thread_Pool" type="com.ibm.ws.sib.mediation.stats.Mediation" enable="1001"/>
+            <pmimodules xmi:id="PMIModule_128133" moduleName="Destinations" type="com.ibm.ws.sib.mediation.stats.Destinations" enable="">
+              <pmimodules xmi:id="PMIModule_128134" moduleName="*" type="com.ibm.ws.sib.mediation.stats.Destination" enable="1002,1003"/>
+            </pmimodules>
+          </pmimodules>
+        </pmimodules>
+        <pmimodules xmi:id="PMIModule_12814" moduleName="MessageStoreStats.group" type="com.ibm.ws.sib.msgstore.pmi.static.MessageStore" enable="">
+          <pmimodules xmi:id="PMIModule_128141" moduleName="MessageStoreStats.cache" type="com.ibm.ws.sib.msgstore.pmi.static.MessageStoreCache" enable="1504,1505,1506,1507,1508,1509,1510,1511,1512,1513,1514,1515,1516,1517,1518,1519,1520,1521,1522,1501,1502,1503"/>
+          <pmimodules xmi:id="PMIModule_128142" moduleName="MessageStoreStats.expiry" type="com.ibm.ws.sib.msgstore.pmi.static.MessageStoreExpiry" enable="1532"/>
+          <pmimodules xmi:id="PMIModule_128143" moduleName="MessageStoreStats.datastore" type="com.ibm.ws.sib.msgstore.pmi.static.MessageStoreDataStore" enable="1540,1541,1542,1543,1544,1545,1546,1547,1548,1549,1550,1551,1552,1553,1554,1555,1523,1524,1525,1526,1527,1528,1529,1530,1531"/>
+          <pmimodules xmi:id="PMIModule_128144" moduleName="MessageStoreStats.filestore" type="com.ibm.ws.sib.msgstore.pmi.static.MessageStoreFileStore" enable="1556,1557,1558"/>
+          <pmimodules xmi:id="PMIModule_128145" moduleName="MessageStoreStats.transactions" type="com.ibm.ws.sib.msgstore.pmi.static.MessageStoreTransactions" enable="1536,1537,1538,1539,1533,1534,1535"/>
+        </pmimodules>
+      </pmimodules>
+    </pmimodules>
+    <pmimodules xmi:id="PMIModule_1282" moduleName="StatGroup.Communications" type="com.ibm.ws.sib.comms.pmi.xml.Communications" enable="">
+      <pmimodules xmi:id="PMIModule_12821" moduleName="StatGroup.Clients" type="com.ibm.ws.sib.comms.pmi.xml.ClientGroup" enable="">
+        <pmimodules xmi:id="PMIModule_128211" moduleName="StatGroup.ClientsStandard" type="com.ibm.ws.sib.comms.pmi.xml.ClientStats" enable="551,552,553,554,555,556,557,558,559,560,561,562,563,564,565"/>
+        <pmimodules xmi:id="PMIModule_128212" moduleName="StatGroup.ClientsDetailed" type="com.ibm.ws.sib.comms.pmi.xml.ClientDetailedStats" enable="701,702,703,704,705,706,707,708,709,710,711,712,713,714,715,716,717,718,719,720,721,722,723,724,725,726,727,728,729,730,731,732,733,734,735,736,737,738,739,740,741,742,743,744,745,746,747,748,749,750,751,752"/>
+      </pmimodules>
+      <pmimodules xmi:id="PMIModule_12822" moduleName="StatGroup.MessagingEngines" type="com.ibm.ws.sib.comms.pmi.xml.MEGroup" enable="">
+        <pmimodules xmi:id="PMIModule_128221" moduleName="StatGroup.MessagingEnginesStandard" type="com.ibm.ws.sib.comms.pmi.xml.MEStats" enable="512,513,514,515,501,502,503,504,505,506,507,510,511"/>
+        <pmimodules xmi:id="PMIModule_128222" moduleName="StatGroup.MessagingEnginesDetailed" type="com.ibm.ws.sib.comms.pmi.xml.MEDetailedStats" enable="640,641,642,643,644,645,646,647,648,649,650,651,652,601,602,603,604,605,606,607,608,609,610,611,612,613,614,615,616,617,618,619,620,621,622,623,624,625,626,627,628,629,630,631,632,633,634,635,636,637,638,639"/>
+      </pmimodules>
+      <pmimodules xmi:id="PMIModule_12823" moduleName="StatGroup.WMQLinks" type="com.ibm.ws.sib.comms.pmi.xml.MQLinkGroup" enable="">
+        <pmimodules xmi:id="PMIModule_128231" moduleName="StatGroup.WMQLinksStandard" type="com.ibm.ws.sib.comms.pmi.xml.MQLinkStats" enable="801,802,803,804,805,806,807,808,809,810,811,812,813,814"/>
+      </pmimodules>
+      <pmimodules xmi:id="PMIModule_12824" moduleName="StatGroup.WMQClientLinks" type="com.ibm.ws.sib.comms.pmi.xml.MQClientLinkGroup" enable="">
+        <pmimodules xmi:id="PMIModule_128241" moduleName="StatGroup.WMQClientLinksStandard" type="com.ibm.ws.sib.comms.pmi.xml.MQClientLinkStats" enable="901,902,903,904,905,906,907,908,909,910"/>
+      </pmimodules>
+    </pmimodules>
+  </pmimodules>
+  <pmimodules xmi:id="PMIModule_129" moduleName="SipContainerModule" type="com.ibm.ws.sip.container.was.pmi.SipContainerModule" enable="3,4,5,6,7,8,9,10,13,14"/>
+  <pmimodules xmi:id="PMIModule_118" moduleName="systemModule" type="systemModule" enable="1,2,3"/>
+  <pmimodules xmi:id="PMIModule_119" moduleName="threadPoolModule" type="threadPoolModule" enable="1,2,3,4,5,6,7,8,9,10"/>
+  <pmimodules xmi:id="PMIModule_120" moduleName="transactionModule" type="transactionModule" enable="1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19"/>
+  <pmimodules xmi:id="PMIModule_121" moduleName="webAppModule" type="com.ibm.ws.wswebcontainer.stats.webAppModuleStats,com.ibm.ws.wswebcontainer.stats.servletStats,com.ibm.ws.wswebcontainer.stats.urlStats,com.ibm.ws.portletcontainer.pmi.xml.portletAppModule,com.ibm.ws.portletcontainer.pmi.xml.portletModule" enable="1,2,100,11,12,13,14,15,16,17,18,19,115,116,117,118,119,120,121"/>
+  <pmimodules xmi:id="PMIModule_130" moduleName="ardModule" type="com.ibm.ws.ard.stats.ardStats" enable="1"/>
+  <pmimodules xmi:id="PMIModule_123" moduleName="webServicesModule" type="webServicesModule" enable="16,17,1,18,19,20,11,12,13,14,15"/>
+  <pmimodules xmi:id="PMIModule_124" moduleName="wlmModule" type="wlmModule#" enable="">
+    <pmimodules xmi:id="PMIModule_1241" moduleName="wlmModule.client" type="wlmModule#wlmModule.client" enable="51,52,53"/>
+    <pmimodules xmi:id="PMIModule_1242" moduleName="wlmModule.server" type="wlmModule#wlmModule.server" enable="16,17,18,19,11,12,14,15"/>
+  </pmimodules>
+  <pmimodules xmi:id="PMIModule_126" moduleName="wsgwModule" type="wsgwModule" enable="1,2,3,4"/>
+  <pmimodules xmi:id="PMIModule_131" moduleName="xdProcessModule" type="com.ibm.ws.xd.pmi.xml.processModule" enable=""/>
+</pmiservice:PMIModule>

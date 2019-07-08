@@ -1,0 +1,7 @@
+<Product InventoryTagVersion="1.0">
+    <ProductName>WebSphere Application Server Network Deployment</ProductName>
+    <ProductVersion>8.5.5</ProductVersion>
+    <SWGFMIDX>HWASND855</SWGFMIDX>
+    <OCCode>SSAW57</OCCode>
+    <ProductReleaseID>36eed87d2a4e44b79e1b50cf914047b8</ProductReleaseID>
+</Product>

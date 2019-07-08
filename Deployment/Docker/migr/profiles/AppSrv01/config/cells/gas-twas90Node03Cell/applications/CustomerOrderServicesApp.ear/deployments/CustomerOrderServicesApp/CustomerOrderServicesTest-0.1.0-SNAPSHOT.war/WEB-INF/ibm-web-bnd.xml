@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-bnd xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://websphere.ibm.com/xml/ns/javaee"
+    xsi:schemaLocation="http://websphere.ibm.com/xml/ns/javaee http://websphere.ibm.com/xml/ns/javaee/ibm-web-bnd_1_0.xsd" version="1.0">
+  <virtual-host name="default_host"/>
+  <ejb-ref binding-name="ejblocal:org.pwte.example.service.ProductSearchService" name="ejb/ProductSearchService"/>
+  <env-entry name="DBUNIT_CONNECTION_URL" value="jdbc:db2://172.16.52.252:50000/ORDERDB"/>
+  <env-entry name="DBUNIT_USERNAME" value="db2inst1"/>
+  <env-entry name="DBUNIT_PASSWORD" value="db2inst1"/>
+  <env-entry name="CUSTOMER_ORDER_SERVICES_WEB_ENDPOINT" value="https://localhost:9445/CustomerOrderServicesWeb/"/>
+  <env-entry name="CUSTOMER_ORDER_SERVICES_TEST_ENDPOINT" value="http://localhost:9082/CustomerOrderServicesTest/"/>
+</web-bnd>
+

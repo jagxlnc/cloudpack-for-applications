@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ibm-metadata>
+  <annotated-classes name="com.ibm.websphere.samples.pbw.war.AccountServlet"/>
+  <annotated-classes name="javax.faces.webapp.FacesServlet"/>
+  <annotated-classes name="com.ibm.websphere.samples.pbw.war.ImageServlet"/>
+  <annotated-classes name="pagecode.Help"/>
+  <annotated-classes name="com.ibm.websphere.samples.pbw.war.AdminServlet"/>
+  <annotated-classes name="pagecode.PageCodeBase"/>
+</ibm-metadata>

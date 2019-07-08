@@ -1,0 +1,18 @@
+#
+# Header
+#
+ResourceType=Application
+ImplementingResourceType=Application
+CreateDeleteCommandProperties=true
+ResourceId=Deployment=CustomerOrderServicesApp
+#
+
+#
+# Properties
+#
+Name=CustomerOrderServicesApp
+Update=true
+operationType=update
+contentType=app
+contentFile=/work/config/CustomerOrderServicesApp-0.1.0-SNAPSHOT.ear
+useDefaultBindings=true

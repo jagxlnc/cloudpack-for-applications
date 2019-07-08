@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSourceExtensions>
+  <extendedDSPropertySet resRefOrModuleName="PlantsByWebSphere.war#MailerBean#mail/mail-service"/>
+</dataSourceExtensions>

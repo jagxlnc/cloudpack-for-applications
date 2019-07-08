@@ -1,0 +1,5 @@
+ResourceType=JavaVirtualMachine
+ImplementingResourceType=Server
+ResourceId=Cell=!{cellName}:Node=!{nodeName}:Server=!{serverName}:JavaProcessDef=:JavaVirtualMachine=
+AttributeInfo=jvmEntries
+genericJvmArguments=-javaagent:/opt/IBM/WebSphere/newrelic/newrelic.jar

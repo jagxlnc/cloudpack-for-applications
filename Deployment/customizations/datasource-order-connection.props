@@ -1,0 +1,16 @@
+#
+ResourceType=DataSource
+ImplementingResourceType=GenericType
+ResourceId=Cell=!{cellName}:JDBCProvider=DB2_Using_IBM_JCC_Driver_(XA):DataSource=jndiName#jdbc/orderds
+#
+name=OrderDS #required
+# SubSection 1.0.0.3 # DataSource J2EE Properties
+ResourceType=J2EEResourcePropertySet
+ImplementingResourceType=GenericType
+ResourceId=Cell=!{cellName}:JDBCProvider=DB2_Using_IBM_JCC_Driver_(XA):DataSource=jndiName#jdbc/orderds:J2EEResourcePropertySet=
+AttributeInfo=resourceProperties(name,value)
+#Properties
+databaseName=ORDERDB #String,required
+serverName=172.16.52.252 #String
+portNumber=50000 #integer
+

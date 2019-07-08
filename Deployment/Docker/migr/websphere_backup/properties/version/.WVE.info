@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE product SYSTEM "product.dtd">
+<product name="IBM WebSphere Virtual Enterprise">
+  <id>WVE</id>
+  <version>8.5.0.1</version>
+  <build-info
+    date="5/3/13"
+    level="a1318.03182652"/>
+</product>

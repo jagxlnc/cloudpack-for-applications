@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<appdeployment:Deployment xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:appcfg="http://www.ibm.com/websphere/appserver/schemas/5.0/appcfg.xmi" xmlns:appdeployment="http://www.ibm.com/websphere/appserver/schemas/5.0/appdeployment.xmi" xmi:id="Deployment_1560348531856">
+  <deployedObject xmi:type="appdeployment:ApplicationDeployment" xmi:id="ApplicationDeployment_1560348531856" deploymentId="0" startingWeight="1" binariesURL="$(APP_INSTALL_ROOT)/gas-twas90Node03Cell/PlantsByWebSphere8.ear" useMetadataFromBinaries="false" enableDistribution="true" createMBeansForResources="true" reloadEnabled="false" appContextIDForSecurity="href:gas-twas90Node03Cell/PlantsByWebSphere8" filePermission=".*\.dll=755#.*\.so=755#.*\.a=755#.*\.sl=755" allowDispatchRemoteInclude="false" allowServiceRemoteInclude="false" asyncRequestDispatchType="DISABLED" standaloneModule="false" enableClientModule="false">
+    <targetMappings xmi:id="DeploymentTargetMapping_1560348531856" enable="true" target="ServerTarget_1560348531856"/>
+    <classloader xmi:id="Classloader_1560348531856" mode="PARENT_FIRST"/>
+    <modules xmi:type="appdeployment:WebModuleDeployment" xmi:id="WebModuleDeployment_1560348531856" deploymentId="1" startingWeight="10000" uri="PlantsByWebSphere.war" containsEJBContent="31">
+      <targetMappings xmi:id="DeploymentTargetMapping_1560348531857" target="ServerTarget_1560348531856"/>
+      <configs xmi:type="appcfg:WebModuleConfig" xmi:id="WebModuleConfig_1560348531856" name="PlantsByWebSphere.war">
+        <ejbModuleConfiguration xmi:id="EJBModuleConfiguration_1560348531856"/>
+      </configs>
+      <classloader xmi:id="Classloader_1560348531857"/>
+    </modules>
+    <properties xmi:id="Property_1560348531856" name="metadata.complete" value="false"/>
+  </deployedObject>
+  <deploymentTargets xmi:type="appdeployment:ServerTarget" xmi:id="ServerTarget_1560348531856" name="server1" nodeName="gas-twas90Node04"/>
+</appdeployment:Deployment>

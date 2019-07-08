@@ -1,0 +1,4 @@
+grant codeBase "file:/opt/IBM/WebSphere/newrelic/-" {
+       permission java.security.AllPermission;
+       permission java.net.SocketPermission "*.newrelic.com", "connect,accept,resolve";
+};

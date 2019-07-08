@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ibm-metadata>
+  <annotated-classes name="org.apache.wink.server.internal.servlet.AbstractRestServlet"/>
+  <annotated-classes name="com.ibm.websphere.jaxrs.server.IBMRestServlet"/>
+  <annotated-classes name="org.apache.wink.server.internal.servlet.RestServlet"/>
+</ibm-metadata>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE product SYSTEM "product.dtd">
+<product name="IBM WebSphere SDK Java Technology Edition (Optional)">
+  <id>IBMJAVA7</id>
+  <version>7.0.4.1</version>
+  <build-info
+    date="5/10/13"
+    level="gm1318.03"/>
+</product>

@@ -1,0 +1,6 @@
+#Properties for AppSrv01-BASE-6302ff07-6bab-4f35-85b2-d2dade753b3e
+#Fri Jun 07 08:00:27 EDT 2019
+com.ibm.ws.profile.name=AppSrv01
+com.ibm.ws.profile.type=BASE
+com.ibm.ws.profile.path=/opt/IBM/WebSphere/AppServer855/profiles/AppSrv01
+com.ibm.ws.profile.key=AppSrv01-BASE-6302ff07-6bab-4f35-85b2-d2dade753b3e

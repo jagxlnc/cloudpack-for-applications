@@ -1,0 +1,25 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: cos-twas
+  namespace: appmod-twas
+  labels:
+    app: cos-twas
+spec:
+  ports:
+    - name: 9080-tcp
+      protocol: TCP
+      port: 9080
+      targetPort: 9080
+    - name: 9443-tcp
+      protocol: TCP
+      port: 9443
+      targetPort: 9443
+  selector:
+    app: cos-twas
+    deploymentconfig: cos-twas
+  type: ClusterIP
+  sessionAffinity: None
+status:
+  loadBalancer: {}
+

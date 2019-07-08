@@ -1,0 +1,54 @@
+#
+# Configuration properties file for cells/DefaultCell01/nodes/DefaultNode01/servers/server1|server.xml#PMIService_1183122130078#
+# Extracted on Mon Jul 01 12:50:56 UTC 2019
+#
+
+#
+# Section 1.0 ## Cell=!{cellName}:Node=!{nodeName}:Server=!{serverName}:PMIService=
+#
+
+#
+# SubSection 1.0 # PMIService Section
+#
+ResourceType=PMIService
+ImplementingResourceType=PMIService
+ResourceId=Cell=!{cellName}:Node=!{nodeName}:Server=!{serverName}:PMIService=
+AttributeInfo=services
+#
+
+#
+#Properties
+#
+synchronizedUpdate=false #boolean,default(false)
+enable=true #boolean,default(false)
+context=!{serverName}
+statisticSet=all
+initialSpecLevel=
+
+
+#
+# SubSection 1.0.1 # PMIService properties
+#
+ResourceType=PMIService
+ImplementingResourceType=PMIService
+ResourceId=Cell=!{cellName}:Node=!{nodeName}:Server=!{serverName}:PMIService=
+AttributeInfo=properties(name,value)
+#
+
+#
+#Properties
+#
+
+
+#
+# End of Section 1.0# Cell=!{cellName}:Node=!{nodeName}:Server=!{serverName}:PMIService=
+#
+#
+#
+EnvironmentVariablesSection
+#
+#
+#Environment Variables
+cellName=DefaultCell01
+nodeName=DefaultNode01
+serverName=server1

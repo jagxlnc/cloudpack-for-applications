@@ -1,0 +1,18 @@
+kind: Route
+apiVersion: route.openshift.io/v1
+metadata:
+  name: cos-twas
+  namespace: appmod-twas
+  labels:
+    app: cos-twas
+spec:
+  host: appmod-twas.app-ocp-prod.ibm-gse.jkwong.xyz
+  to:
+    kind: Service
+    name: cos-twas
+    weight: 100
+  port:
+    targetPort: 9443-tcp
+  tls:
+    termination: passthrough
+  wildcardPolicy: None

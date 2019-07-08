@@ -1,0 +1,20 @@
+#Saved OS info and PreUpgrade args for cross OS migration
+#Fri Jun 21 11:25:21 EDT 2019
+is.node.federated=false
+cell.name=gas-twas90Node03Cell
+os.name=Linux
+node.name=gas-twas90Node04
+admin.server=server1
+args9=AppSrv01
+args11=true
+args8=-oldProfile
+args10=-machineChange
+args7=true
+args6=-allowSameRelease
+args5={xor}KD4sPjsyNjE\=
+args4=-password
+is.node.deployment.manager=false
+args3=wasadmin
+args2=-username
+args1=/opt/IBM/WebSphere/AppServer855/profiles/AppSrv01
+args0=/opt/IBM/cmt/gas-twas90Node03Cell/gas-twas90Node04/WSMigration

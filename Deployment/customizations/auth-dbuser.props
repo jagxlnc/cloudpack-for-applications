@@ -1,0 +1,17 @@
+#
+# SubSection 1.0.1 # JAASAuthData Section
+#
+ResourceType=JAASAuthData
+ImplementingResourceType=Security
+ResourceId=Cell=!{cellName}:Security=:JAASAuthData=alias#gas-twas90Node04/DBUser
+AttributeInfo=authDataEntries
+#
+
+#
+#Properties
+#
+password="{xor}Oz1tNjEsK24=" #required
+alias="gas-twas90Node04/DBUser" #required
+userId=db2inst1 #required
+description=descr
+
