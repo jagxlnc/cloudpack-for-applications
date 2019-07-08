@@ -114,7 +114,7 @@ pipeline {
                             }
                           }
                         }      
-         stage("Deploy objects") {
+         /*stage("Deploy objects") {
                   steps {
                       script {
                             sh """
@@ -132,6 +132,6 @@ pipeline {
                          }
                         }
                       }
-                    }        
+                    } */       
               }
             }
