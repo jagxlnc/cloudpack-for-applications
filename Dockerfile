@@ -1,4 +1,4 @@
-FROM ibmcom/websphere-traditional:9.0.0.11 as migration
+FROM ibmcom/websphere-traditional:9.0.0.11
 
 #Hardcode password for admin console
 COPY ./tWAS/PASSWORD /tmp/PASSWORD
