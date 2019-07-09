@@ -92,7 +92,7 @@ pipeline {
                                               "kind": "ImageStreamTag",
                                               "name": "websphere-traditional:9.0.0.11"
                                             ],
-                                            "dockerfilePath": "Dockerfile",
+                                            "dockerfilePath": "Deployment/openshift/Dockerfile",
                                             "noCache": true,
                                             "forcePull": true
                                           ]
