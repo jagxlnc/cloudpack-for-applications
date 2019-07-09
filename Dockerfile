@@ -4,6 +4,8 @@
 #FROM ibmcom/websphere-traditional:$WEBSPHERE_VERSION as migration
 FROM ibmcom/websphere-traditional:9.0.0.11
 
+USER root
+
 #Hardcode password for admin console
 COPY --chown=was:0 ./tWAS/PASSWORD /tmp/PASSWORD
 
