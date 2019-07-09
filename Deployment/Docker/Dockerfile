@@ -9,8 +9,8 @@ USER root
 # Use --build-arg PASSWORD="your password" to specify password for WASPostUpgrade.
 ARG PASSWORD
 
-COPY --chown=was:0 ./migr /tmp/migr
-COPY --chown=was:0 ./migration.properties /opt/IBM/WebSphere/AppServer/properties/migration.properties
+COPY --chown=was:0 ./Deployment/Docker/migr /tmp/migr
+COPY --chown=was:0 ./Deployment/Docker/migration.properties /opt/IBM/WebSphere/AppServer/properties/migration.properties
 
 # All other parameters to WASPostUpgrade are set in migration.properties. If you want to change those settings,
 # either edit migration.properties or specify them on the command line here, if available.
