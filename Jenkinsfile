@@ -23,7 +23,7 @@ pipeline {
       label "maven"
     }
     stages {
-      /*stage('Maven build') {
+      stage('Maven build') {
           steps {
             sh """
             mvn -v 
@@ -31,7 +31,7 @@ pipeline {
             mvn clean package
             """
           }
-        }*/
+        }
         // Build Container Image using the artifacts produced in previous stages
       stage('Build Container Image'){
                 steps {
@@ -92,7 +92,7 @@ pipeline {
                                               "kind": "ImageStreamTag",
                                               "name": "websphere-traditional:9.0.0.11"
                                             ],
-                                            "dockerfilePath": "Deployment/Docker/Dockerfile",
+                                            "dockerfilePath": "Dockerfile",
                                             "noCache": true,
                                             "forcePull": true
                                           ]
@@ -114,7 +114,7 @@ pipeline {
                             }
                           }
                         }      
-         /*stage("Deploy objects") {
+         stage("Deploy objects") {
                   steps {
                       script {
                             sh """
@@ -132,6 +132,6 @@ pipeline {
                          }
                         }
                       }
-                    } */       
+                    }        
               }
             }
