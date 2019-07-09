@@ -1,13 +1,14 @@
-ARG WEBSPHERE_VERSION=9.0.0.11
+#ARG WEBSPHERE_VERSION=9.0.0.11
 
 # Migration requires websphere-traditional >= 9.0.0.11
-FROM ibmcom/websphere-traditional:$WEBSPHERE_VERSION as migration
+#FROM ibmcom/websphere-traditional:$WEBSPHERE_VERSION as migration
+FROM ibmcom/websphere-traditional:9.0.0.11 as migration
 
 # Use --build-arg PASSWORD="your password" to specify password for WASPostUpgrade.
 ARG PASSWORD
 
-COPY --chown=was:0 migr /tmp/migr
-COPY --chown=was:0 migration.properties /opt/IBM/WebSphere/AppServer/properties/migration.properties
+COPY --chown=was:0 ./migr /tmp/migr
+COPY --chown=was:0 ./migration.properties /opt/IBM/WebSphere/AppServer/properties/migration.properties
 
 # All other parameters to WASPostUpgrade are set in migration.properties. If you want to change those settings,
 # either edit migration.properties or specify them on the command line here, if available.
