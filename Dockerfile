@@ -2,7 +2,7 @@
 
 # Migration requires websphere-traditional >= 9.0.0.11
 #FROM ibmcom/websphere-traditional:$WEBSPHERE_VERSION as migration
-FROM ibmcom/websphere-traditional:9.0.0.11 as migration
+FROM ibmcom/websphere-traditional:9.0.0.11
 
 #Hardcode password for admin console
 COPY --chown=was:0 tWAS/PASSWORD /tmp/PASSWORD
