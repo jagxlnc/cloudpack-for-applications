@@ -154,23 +154,13 @@ pipeline {
                         }
                       }
                     }
-      stage('Promote to STAGE ?') {
+     stage('Promote to STAGING ?') {
         steps {
             timeout(time:15, unit:'MINUTES') {
                 input message: "Promote to STAGE?", ok: "Promote"
               }
-            script {
-              openshift.withCluster() {
-               openshift.tag("${env.DEV_IMAGE_TAG}", "${env.STG_IMAGE_TAG}")
-              }
-            }
-          }
-        }
-     stage('Deploy to STAGE') {
-        steps {
              script {
                    sh """
-                     sed -i -e 's#${env.DEV_IMAGE_TAG}#${env.STAGE_IMAGE_TAG}#' Deployment/openshift/yaml/dc.yaml
                      sed -i -e 's#${env.DEV_PROJECT}#${env.STAGE_PROJECT}#' Deployment/openshift/yaml/dc.yaml
                      sed -i -e 's#${env.DEV_PROJECT}#${env.STAGE_PROJECT}#' Deployment/openshift/yaml/service.yaml
                      sed -i -e 's#${env.DEV_PROJECT}#${env.STAGE_PROJECT}#' Deployment/openshift/yaml/route.yaml
