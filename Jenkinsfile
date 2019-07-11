@@ -44,7 +44,7 @@ pipeline {
             mvn test
             """
           }
-        }
+        }*/
       
       // Build Container Image using the artifacts produced in previous stages
       stage('Build Container Image'){
@@ -52,7 +52,7 @@ pipeline {
                       script {
                               // Build container image using local Openshift cluster
                               openshift.withCluster() {
-                                openshift.withProject() {
+                                openshift.withProject(env.DEV_PROJECT) {
                                   timeout (time: 10, unit: 'MINUTES') {
                               // Generate the imagestreams and buildconfig
                                     def src_image_stream = [
@@ -131,7 +131,7 @@ pipeline {
                               }
                             }
                           }
-                        } */    
+                        }    
          stage("Deploy to DEV") {
                   steps {
                       script {
