@@ -144,7 +144,7 @@ pipeline {
                             openshift.withCluster() {
                             openshift.withProject(env.DEV_PROJECT) {
                             def dc = openshift.apply( readFile("Deployment/openshift/yaml/dc.yaml"))
-                            println "Created objects: ${dc1.names()}"
+                            println "Created objects: ${dc.names()}"
                             def service = openshift.apply( readFile("Deployment/openshift/yaml/service.yaml"))
                             println "Created objects: ${service.names()}"
                             def route = openshift.apply( readFile("Deployment/openshift/yaml/route.yaml"))
