@@ -25,7 +25,7 @@ pipeline {
     }
     stages {
       // Build Application using Maven
-     /* stage('Maven build') {
+      stage('Maven build') {
           steps {
             sh """
             mvn -v 
@@ -131,7 +131,7 @@ pipeline {
                               }
                             }
                           }
-                        }    */
+                        }    
          stage("Deploy to DEV") {
                   steps {
                       script {
