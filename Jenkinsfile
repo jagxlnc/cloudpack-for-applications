@@ -6,16 +6,17 @@
 openshift.withCluster() {
   env.NAMESPACE = openshift.project()
   env.APP_NAME = "${JOB_NAME}".replaceAll(/-build.*/, '')
-  echo "Starting Pipeline for ${APP_NAME}..."
-
   env.BUILD = "${env.NAMESPACE}"
-
   env.BASE_IMAGE_REPO = "ibmcom/websphere-traditional"
   env.BASE_IMAGE_TAG = "9.0.0.11"
-
   env.REGISTRY = "docker-registry.default.svc:5000"
-  env.DST_IMAGE = "${env.REGISTRY}/${env.NAMESPACE}/${env.APP_NAME}:${env.BUILD_NUMBER}"
+  env.DEV_PROJECT = "dev"
+  env.STAGE_PROJECT = "stage"
+  env.DEV_IMAGE_TAG = "${env.REGISTRY}/${env.DEV_PROJECT}/${env.APP_NAME}:${env.BUILD_NUMBER}"
+  env.STG_IMAGE_TAG = "${env.REGISTRY}/${env.STAGE_PROJECT}/${env.APP_NAME}:${env.BUILD_NUMBER}"
   
+  
+  echo "Starting Pipeline for ${APP_NAME}..."
 }
 
 pipeline {
@@ -23,6 +24,7 @@ pipeline {
       label "maven"
     }
     stages {
+      // Build Application using Maven
       stage('Maven build') {
           steps {
             sh """
@@ -32,7 +34,15 @@ pipeline {
             """
           }
         }
-        // Build Container Image using the artifacts produced in previous stages
+      
+      // Run Maven unit tests
+        stage('Unit Test'){
+          steps {
+            sh "mvn test"
+          }
+        }
+      
+      // Build Container Image using the artifacts produced in previous stages
       stage('Build Container Image'){
                 steps {
                       script {
@@ -40,7 +50,7 @@ pipeline {
                               openshift.withCluster() {
                                 openshift.withProject() {
                                   timeout (time: 10, unit: 'MINUTES') {
-                                    // generate the imagestreams and buildconfig
+                              // Generate the imagestreams and buildconfig
                                     def src_image_stream = [
                                       "apiVersion": "v1",
                                       "kind": "ImageStream",
@@ -59,7 +69,8 @@ pipeline {
                                         ]
                                       ]
                                     ]
-                                    openshift.apply(src_image_stream)
+                                    def sImageStream = openshift.apply(src_image_stream)
+                                    println "Source ImageStream Created........ ${sImageStream.names()}"
 
                                     def target_image_stream = [
                                       "apiVersion": "v1",
@@ -68,8 +79,10 @@ pipeline {
                                           "name": "${env.APP_NAME}",
                                       ]
                                     ]
-                                    openshift.apply(target_image_stream)
-
+                                    def tImageStream =openshift.apply(target_image_stream)
+                                    println "Target ImageStream Created........ ${tImageStream.names()}"
+                                    
+                                    // BuildConfig that uses Source & Target ImageStreams
                                     def buildconfig = [
                                       "apiVersion": "v1",
                                       "kind": "BuildConfig",
@@ -101,7 +114,8 @@ pipeline {
                                         "successfulBuildsHistoryLimit": 3
                                       ]
                                     ]
-                                    openshift.apply(buildconfig)
+                                    def bConfig = openshift.apply(buildconfig)
+                                    println "BuildConfig Created........ ${bConfig.names()}"
 
                                     // run the build and wait for completion
                                     def build = openshift.selector("bc", env.APP_NAME).startBuild("--from-dir=.")
@@ -114,24 +128,55 @@ pipeline {
                             }
                           }
                         }      
-         stage("Deploy objects") {
+         stage("Deploy to DEV") {
                   steps {
                       script {
                             sh """
-                            sed -i -e 's#docker-registry.default.svc:5000/appmod-twas/customerorderservices-twas:1.0#${env.DST_IMAGE}#' Deployment/openshift/yaml/dc.yaml
+                            sed -i -e 's#docker-registry.default.svc:5000/appmod-twas/customerorderservices-twas:1.0#${env.DEV_IMAGE_TAG}#' Deployment/openshift/yaml/dc.yaml
                             """
                             openshift.withCluster() {
-                            openshift.withProject() {
-                            def objects1 = openshift.apply( readFile("Deployment/openshift/yaml/dc.yaml"), "--namespace=${env.NAMESPACE}" )
-                            println "Created objects: ${objects1.names()}"
-                            def objects2 = openshift.apply( readFile("Deployment/openshift/yaml/service.yaml"), "--namespace=${env.NAMESPACE}" )
-                            println "Created objects: ${objects2.names()}"
-                            def objects3 = openshift.apply( readFile("Deployment/openshift/yaml/route.yaml"), "--namespace=${env.NAMESPACE}" )
-                            println "Created objects: ${objects3.names()}"
+                            openshift.withProject(env.DEV_PROJECT) {
+                            def dc = openshift.apply( readFile("Deployment/openshift/yaml/dc.yaml"))
+                            println "Created objects: ${dc1.names()}"
+                            def service = openshift.apply( readFile("Deployment/openshift/yaml/service.yaml"))
+                            println "Created objects: ${service.names()}"
+                            def route = openshift.apply( readFile("Deployment/openshift/yaml/route.yaml"))
+                            println "Created objects: ${route.names()}"
                            }
                          }
                         }
                       }
-                    }        
+                    }
+      stage('Promote to STAGE ?') {
+        steps {
+            timeout(time:15, unit:'MINUTES') {
+                input message: "Promote to STAGE?", ok: "Promote"
+              }
+            script {
+              openshift.withCluster() {
+               openshift.tag("${env.DEV_IMAGE_TAG}", "${env.STAGE_IMAGE_TAG}")
               }
             }
+          }
+        }
+     stage('Deploy to STAGE') {
+        steps {
+             script {
+                   sh """
+                     sed -i -e 's#${env.DEV_IMAGE_TAG}#${env.STAGE_IMAGE_TAG}#' Deployment/openshift/yaml/dc.yaml
+                      """
+                   openshift.withCluster() {
+                   openshift.withProject(env.STAGE_PROJECT) {
+                   def dc_stage = openshift.apply( readFile("Deployment/openshift/yaml/dc.yaml"))
+                   println "Created objects: ${dc_stage.names()}"
+                   def service_stage = openshift.apply( readFile("Deployment/openshift/yaml/service.yaml"))
+                   println "Created objects: ${service_stage.names()}"
+                   def route_stage = openshift.apply( readFile("Deployment/openshift/yaml/route.yaml"))
+                   println "Created objects: ${route_stage.names()}"
+                   }
+                  }
+                 }
+               }
+             }
+     }
+  }
