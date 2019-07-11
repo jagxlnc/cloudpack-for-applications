@@ -25,7 +25,7 @@ pipeline {
     }
     stages {
       // Build Application using Maven
-      /*stage('Maven build') {
+      stage('Maven build') {
           steps {
             sh """
             mvn -v 
@@ -44,7 +44,7 @@ pipeline {
             mvn test
             """
           }
-        }*/
+        }
       
       // Build Container Image using the artifacts produced in previous stages
       stage('Build Container Image'){
