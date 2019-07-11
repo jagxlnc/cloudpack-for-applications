@@ -137,9 +137,9 @@ pipeline {
                       script {
                             sh """
                             sed -i -e 's#docker-registry.default.svc:5000/appmod-twas/customerorderservices-twas:1.0#${env.DEV_IMAGE_TAG}#' Deployment/openshift/yaml/dc.yaml
-                            sed -i -e 's#appmod-twas#${env.env.DEV_PROJECT}#' Deployment/openshift/yaml/dc.yaml
-                            sed -i -e 's#appmod-twas#${env.env.DEV_PROJECT}#' Deployment/openshift/yaml/service.yaml
-                            sed -i -e 's#appmod-twas#${env.env.DEV_PROJECT}#' Deployment/openshift/yaml/route.yaml
+                            sed -i -e 's#appmod-twas#${env.DEV_PROJECT}#' Deployment/openshift/yaml/dc.yaml
+                            sed -i -e 's#appmod-twas#${env.DEV_PROJECT}#' Deployment/openshift/yaml/service.yaml
+                            sed -i -e 's#appmod-twas#${env.DEV_PROJECT}#' Deployment/openshift/yaml/route.yaml
                             """
                             openshift.withCluster() {
                             openshift.withProject(env.DEV_PROJECT) {
