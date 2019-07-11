@@ -161,7 +161,7 @@ pipeline {
               }
             script {
               openshift.withCluster() {
-               openshift.tag("${env.DEV_IMAGE_TAG}", "${env.STAGE_IMAGE_TAG}")
+               openshift.tag("${env.DEV_IMAGE_TAG}", "${env.STG_IMAGE_TAG}")
               }
             }
           }
