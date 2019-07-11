@@ -13,7 +13,7 @@ openshift.withCluster() {
   env.DEV_PROJECT = "dev"
   env.STAGE_PROJECT = "stage"
   env.DEV_IMAGE_TAG = "${env.REGISTRY}/${env.DEV_PROJECT}/${env.APP_NAME}:${env.BUILD_NUMBER}"
-  env.STG_IMAGE_TAG = "${env.REGISTRY}/${env.STAGE_PROJECT}/${env.APP_NAME}:${env.BUILD_NUMBER}"
+  env.STG_IMAGE_TAG = "${env.REGISTRY}/${env.DEV_PROJECT}/${env.APP_NAME}:promoted"
   
   
   echo "Starting Pipeline for ${APP_NAME}..."
