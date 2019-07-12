@@ -45,7 +45,7 @@ pipeline {
         }
       
       // Build Container Image using the artifacts produced in previous stages
-      stage('Build Container Image'){
+      stage('Build tWAS App Image'){
                 steps {
                       script {
                               // Build container image using local Openshift cluster
@@ -152,7 +152,7 @@ pipeline {
                         }
                       }
                     }
-     stage('Promote to STAGE?') {
+     stage('Promote to STAGING?') {
           steps {
               timeout(time:15, unit:'MINUTES') {
               input message: "Promote to STAGE?", ok: "Promote"
