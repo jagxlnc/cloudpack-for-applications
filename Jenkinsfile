@@ -13,8 +13,6 @@ openshift.withCluster() {
   env.DEV_PROJECT = "dev"
   env.STAGE_PROJECT = "stage"
   env.DEV_IMAGE_TAG = "${env.REGISTRY}/${env.DEV_PROJECT}/${env.APP_NAME}:${env.BUILD_NUMBER}"
-  env.STG_IMAGE_TAG = "${env.REGISTRY}/${env.DEV_PROJECT}/${env.APP_NAME}:promoted"
-  
   
   echo "Starting Pipeline for ${APP_NAME}..."
 }
@@ -154,14 +152,38 @@ pipeline {
                         }
                       }
                     }
-     stage('Promote to STAGING ?') {
-        steps {
-            timeout(time:15, unit:'MINUTES') {
-                input message: "Promote to STAGE?", ok: "Promote"
+     stage('Promote to STAGE?') {
+          steps {
+              timeout(time:15, unit:'MINUTES') {
+              input message: "Promote to STAGE?", ok: "Promote"
               }
+                script {
+                  openshift.withCluster() {
+                  openshift.withProject(env.STAGE_PROJECT) {
+
+                  def target_image_stream_staging = [
+                    "apiVersion": "v1",
+                    "kind": "ImageStream",
+                      "metadata": [
+                        "name": "${env.APP_NAME}",
+                        ]
+                      ]
+
+                  def stImageStream =openshift.apply(target_image_stream_staging)
+                  println "Target ImageStream Created for Staging........ ${stImageStream.names()}"
+        
+                  openshift.tag("${env.DEV_PROJECT}/${env.APP_NAME}:${env.BUILD_NUMBER}", "${env.STAGE_PROJECT}/${env.APP_NAME}:${env.BUILD_NUMBER}")
+                  println "Tag DEV image into STAGING image streams"
+                  }
+                }
+              }
+            }
+          }
+     stage('Deploy to STAGING') {
+        steps {
              script {
                    sh """
-                     sed -i -e 's#${env.DEV_PROJECT}#${env.STAGE_PROJECT}#' Deployment/openshift/yaml/dc.yaml
+                     sed -i -e 's#${env.DEV_PROJECT}/#${env.STAGE_PROJECT}/#' Deployment/openshift/yaml/dc.yaml
                      sed -i -e 's#${env.DEV_PROJECT}#${env.STAGE_PROJECT}#' Deployment/openshift/yaml/service.yaml
                      sed -i -e 's#${env.DEV_PROJECT}#${env.STAGE_PROJECT}#' Deployment/openshift/yaml/route.yaml
                       """
