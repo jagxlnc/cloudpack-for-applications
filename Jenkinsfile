@@ -183,7 +183,7 @@ pipeline {
         steps {
              script {
                    sh """
-                     sed -i -e 's#${env.DEV_PROJECT}/#${env.STAGE_PROJECT}/#' Deployment/openshift/yaml/dc.yaml
+                     sed -i -e 's#${env.DEV_PROJECT}#${env.STAGE_PROJECT}#' Deployment/openshift/yaml/dc.yaml
                      sed -i -e 's#${env.DEV_PROJECT}#${env.STAGE_PROJECT}#' Deployment/openshift/yaml/service.yaml
                      sed -i -e 's#${env.DEV_PROJECT}#${env.STAGE_PROJECT}#' Deployment/openshift/yaml/route.yaml
                       """
