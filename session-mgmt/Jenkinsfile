@@ -11,7 +11,6 @@ openshift.withCluster() {
   env.BASE_IMAGE_TAG = "9.0.0.11"
   env.REGISTRY = "docker-registry.default.svc:5000"
   env.DEV_PROJECT = "dev"
-  env.STAGE_PROJECT = "stage"
   env.DEV_IMAGE_TAG = "${env.REGISTRY}/${env.DEV_PROJECT}/${env.APP_NAME}:${env.BUILD_NUMBER}"
   
   echo "Starting Pipeline for ${APP_NAME}..."
@@ -110,7 +109,23 @@ pipeline {
                             }
                           }
                         }    
-         
+      stage('Deploy to DEV') {
+        steps {
+             script {
+                   openshift.withCluster() {
+                   openshift.withProject(env.DEV_PROJECT) {
+                     sh """
+                        sed -i -e 's#docker-registry.default.svc:5000/dev/sessions-twas:1.0#${env.DEV_IMAGE_TAG}#' session-mgmt/yaml/dc.yaml
+                        """
+                   def dc_stage = openshift.apply( readFile("session-mgmt/yaml/dc.yaml"))
+                   println "Created objects: ${dc_stage.names()}"
+                   def service_stage = openshift.apply( readFile("session-mgmt/yaml/service.yaml"))
+                   println "Created objects: ${service_stage.names()}"
+                   }
+                  }
+                 }
+               }
+             }
           
      }
   }
