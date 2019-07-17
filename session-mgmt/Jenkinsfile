@@ -87,7 +87,7 @@ pipeline {
                                               "kind": "ImageStreamTag",
                                               "name": "websphere-traditional:9.0.0.11"
                                             ],
-                                            "dockerfilePath": "Dockerfile",
+                                            "dockerfilePath": "./session-mgmt/Dockerfile",
                                             "noCache": true,
                                             "forcePull": true
                                           ]
