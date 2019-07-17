@@ -62,7 +62,7 @@ spec:
             periodSeconds: 5
             successThreshold: 1
             failureThreshold: 3
-          image: docker-registry.default.svc:5000/dev/sessions-twas:3.0
+          image: docker-registry.default.svc:5000/dev/sessions-twas:1.0
       restartPolicy: Always
       terminationGracePeriodSeconds: 30
       dnsPolicy: ClusterFirst
